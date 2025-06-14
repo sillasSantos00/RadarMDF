@@ -1,7 +1,7 @@
 package org.example.parametros;
 
-import org.example.produtos.produtos;
+import org.example.produtos.Produtos;
 
 public interface Parametros {
-    produtos save (produtos produtos );
+    Produtos save (Produtos produtos );
 }

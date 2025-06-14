@@ -2,13 +2,13 @@ package org.example.produtos;
 
 import java.math.BigDecimal;
 
-public class produtos {
+public class Produtos {
     private String nome;
     private String descricao;
     private BigDecimal preco;
     private int quantidade;
 
-    public produtos(String nome, String descricao, BigDecimal preco, int quantidade) {
+    public Produtos(String nome, String descricao, BigDecimal preco, int quantidade) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
@@ -19,7 +19,7 @@ public class produtos {
         return nome;
     }
 
-    public produtos setNome(String nome) {
+    public Produtos setNome(String nome) {
         this.nome = nome;
         return this;
     }
@@ -28,7 +28,7 @@ public class produtos {
         return descricao;
     }
 
-    public produtos setDescricao(String descricao) {
+    public Produtos setDescricao(String descricao) {
         this.descricao = descricao;
         return this;
     }
@@ -37,7 +37,7 @@ public class produtos {
         return preco;
     }
 
-    public produtos setPreco(BigDecimal preco) {
+    public Produtos setPreco(BigDecimal preco) {
         this.preco = preco;
         return this;
     }
@@ -46,7 +46,7 @@ public class produtos {
         return quantidade;
     }
 
-    public produtos setQuantidade(int quantidade) {
+    public Produtos setQuantidade(int quantidade) {
         this.quantidade = quantidade;
         return this;
     }

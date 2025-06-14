@@ -19,6 +19,7 @@ public class ConnectionFactory {
                     "root",
                     "123321"
             );
+
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("Driver MySQL não encontrado", e);
         } catch (SQLException ex) {
