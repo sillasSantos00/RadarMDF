@@ -5,7 +5,7 @@ public enum Opcao {
       //  CADASTRAR_CATEGORIA(1,"cadastrar"),
         CADASTRAR_PRODUTO(2, "cadastrar produto"),
       //  ALTERAR_PRODUTO(3, "alterar produto "),
-     //   CONSULTAR_PRODUTO_POR_ID(4, "consultar produto por id "),
+      //   CONSULTAR_PRODUTO_POR_ID(4, "consultar produto por id "),
       //  CONSULTAR_PRODUTO_POR_CATEGORIA(5, "consultar por categoria"),
         ENCERRAR_SISTEMA(6, "encerrar o sistema ");
 

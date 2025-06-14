@@ -1,4 +1,4 @@
-package org.example.opcaovisu;
+package org.example.view;
 
 import org.example.opcao.Opcao;
 
