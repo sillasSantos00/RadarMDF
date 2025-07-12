@@ -2,8 +2,8 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import java.lang.String?>
+
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.example.controller.MainController">
@@ -46,7 +46,7 @@
                     <String>main-title</String>
                 </styleClass>
             </Label>
-            <Button text="Register Product" fx:id="btnCadastrar" onAction="#handleCadastrar">
+            <Button text="Register Product" fx:id="btnCadastrar" onAction= "#handleCadastrar">
                 <styleClass>
                     <String>action-button</String>
                 </styleClass>
@@ -85,3 +85,4 @@
     </right>
 
 </BorderPane>
+
