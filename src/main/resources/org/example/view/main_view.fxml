@@ -41,22 +41,27 @@
             <styleClass>
                 <String>content</String>
             </styleClass>
+
             <Label text="RadarMDF">
                 <styleClass>
                     <String>main-title</String>
                 </styleClass>
             </Label>
-            <Button text="Register Product" fx:id="btnCadastrar" onAction= "#handleCadastrar">
+
+            <!-- Botões novos para patrimônio -->
+            <Button text="Cadastrar Patrimônio" fx:id="btnCadastrar" onAction="#handleCadastrar">
                 <styleClass>
                     <String>action-button</String>
                 </styleClass>
             </Button>
-            <Button text="Consult Product" fx:id="btnConsultar" onAction="#handleConsultar">
+            <Button text="Consultar Patrimônio" fx:id="btnConsultar" onAction="#handleConsultar">
                 <styleClass>
                     <String>action-button</String>
                     <String>secondary</String>
                 </styleClass>
             </Button>
+
+            <!-- Botão original de saída -->
             <Button text="Exit" onAction="#handleExit">
                 <styleClass>
                     <String>action-button</String>
