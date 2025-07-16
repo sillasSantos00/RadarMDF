@@ -8,8 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainApp extends Application{
-    public void start (Stage stage) throws IOException {
+public class MainApp extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/view/MainView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Radar MDF");
@@ -18,7 +19,8 @@ public class MainApp extends Application{
         stage.setScene(scene);
         stage.show();
     }
-    public static void main (String [] args) {
 
+    public static void main(String[] args) {
+        launch(args); // 👈 Isso é obrigatório para iniciar o JavaFX!
     }
 }

@@ -2,7 +2,6 @@ package org.example.app.model;
 
 public class Patrimonio {
 
-    public class Patrimonios {
         private int id;
         private String numeroPatrimonio;
         private String numeroSerie;
@@ -16,7 +15,7 @@ public class Patrimonio {
         private String estadoConservacao;
         private String observacoes;
 
-        public Patrimonios(int id, String numeroPatrimonio, String numeroSerie, String nomeItem, String codigoItem,
+        public Patrimonio(int id, String numeroPatrimonio, String numeroSerie, String nomeItem, String codigoItem,
                           String tipo, double preco, String loja, String setor, String dataCompra,
                           String estadoConservacao, String observacoes) {
             this.id = id;
@@ -48,4 +47,4 @@ public class Patrimonio {
         public String getObservacoes() { return observacoes; }
     }
 
-}
+
