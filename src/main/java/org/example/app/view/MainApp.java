@@ -1,26 +1,21 @@
 package org.example.app.view;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class MainApp extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/view/MainView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+    public void start(Stage stage) throws Exception {
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/org/example/view/MainView.fxml")));
         stage.setTitle("Radar MDF");
-        stage.getIcons().add(new Image("/org/example/imagens/logo.png"));
-        scene.getStylesheets().add(getClass().getResource("/org/example/css/estilo.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
-        launch(args); // 👈 Isso é obrigatório para iniciar o JavaFX!
+        launch(args);
     }
 }
