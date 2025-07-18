@@ -4,5 +4,5 @@
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane xmlns:fx="http://javafx.com/fxml">
-    <Label text="Radar MDF carregado com sucesso!" />
+    <Label text="Radar MDF casrregado com sucesso!" />
 </StackPane>
