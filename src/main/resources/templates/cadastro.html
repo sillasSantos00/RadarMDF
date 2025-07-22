@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Radar MDF - Cadastro de Produto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #343a40;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      color: #fff;
+      padding: 12px 20px;
+      display: block;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+    .main-content {
+      margin-left: 220px;
+      padding: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🧭 Menu lateral -->
+<div class="sidebar">
+  <h4 class="text-white text-center mb-4">Radar MDF</h4>
+  <a href="index.html">🏠 Início</a>
+  <a href="cadastro.html">📦 Cadastrar Produto</a>
+  <a href="relatorios.html">📊 Relatórios</a>
+  <a href="#">⚙️ Configurações</a>
+</div>
+
+<!-- 📋 Conteúdo principal -->
+<div class="main-content">
+  <h2 class="mb-4">📦 Cadastro de Produto</h2>
+
+  <form id="form-produto" class="bg-white p-4 rounded shadow-sm">
+    <div class="mb-3">
+      <label class="form-label">Nome do Produto</label>
+      <input type="text" name="nome" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Preço (R$)</label>
+      <input type="number" name="preco" class="form-control" step="0.01" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Descrição</label>
+      <textarea name="descricao" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Categoria</label>
+      <select name="categoria" class="form-select">
+        <option value="Madeira">Madeira</option>
+        <option value="Ferragem">Ferragem</option>
+        <option value="Ferramenta">Ferramenta</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">✅ Cadastrar Produto</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("form-produto").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = e.target;
+
+    const data = {
+      nome: form.nome.value,
+      preco: parseFloat(form.preco.value),
+      descricao: form.descricao.value,
+      categoria: form.categoria.value
+    };
+
+    fetch("/api/produtos", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.text())
+    .then(msg => {
+      form.reset();
+      alert(msg);
+    })
+    .catch(() => alert("Erro ao cadastrar produto"));
+  });
+</script>
+
+</body>
+</html>
