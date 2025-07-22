@@ -1,0 +1,23 @@
+.sidebar {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 15;
+}
+
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+// Script radarmdf.sql
+CREATE DATABASE IF NOT EXISTS radarmdf;
+USE radarmdf;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    email VARCHAR(100)
+);
+
+INSERT INTO usuarios (nome, email) VALUES
+('João Silva', 'joao@exemplo.com'),
+('Maria Santos', 'maria@exemplo.com');

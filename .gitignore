@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -36,3 +37,18 @@ build/
 
 ### Mac OS ###
 .DS_Store
+=======
+# Maven
+/target
+!.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sistema
+.DS_Store
+Thumbs.db
+>>>>>>> 96b721185205a6587ea3a22099acb5cce3854ddd
