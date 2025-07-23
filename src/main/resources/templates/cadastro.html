@@ -49,28 +49,69 @@
 
   <form id="form-produto" class="bg-white p-4 rounded shadow-sm">
     <div class="mb-3">
-      <label class="form-label">Nome do Produto</label>
-      <input type="text" name="nome" class="form-control" required>
+      <label class="form-label">N patrimonio </label>
+      <input type="number" name="preco" class="form-control" step="0.01" required>
     </div>
 
     <div class="mb-3">
-      <label class="form-label">Preço (R$)</label>
-      <input type="number" name="preco" class="form-control" step="0.01" required>
+      <label class="form-label">Nome do item</label>
+      <select name="categoria" class="form-select">
+        <option value="CPU Dell i3">CPU Dell i3</option>
+        <option value="CPU Dell i7">CPU Dell i7</option>
+        <option value="CPU win 7">CPU win 7</option>
+      </select>
     </div>
+
+
+      <div class="mb-3">
+        <label class="form-label">Codigo do item </label>
+        <input type="number" name="preco" class="form-control" step="0.01" required>
+      </div>
+
+    <div class="mb-3">
+      <label class="form-label">Tipo </label>
+      <select name="categoria" class="form-select">
+        <option value="COMPUTADOR">COMPUTADOR</option>
+        <option value="MONITOR">MONITOR </option>
+        <option value="SWITCH">SWITCH</option>
+      </select>
+
+
+    </div>
+    <div class="mb-3">
+      <label class="form-label">loja </label>
+      <select name="categoria" class="form-select">
+        <option value="COMPUTADOR">COMPUTADOR</option>
+        <option value="MONITOR">MONITOR </option>
+        <option value="SWITCH">SWITCH</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">setor </label>
+      <select name="categoria" class="form-select">
+        <option value="COMPUTADOR">COMPUTADOR</option>
+        <option value="MONITOR">MONITOR </option>
+        <option value="SWITCH">SWITCH</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">estado de conservacao </label>
+      <select name="categoria" class="form-select">
+        <option value="COMPUTADOR">COMPUTADOR</option>
+        <option value="MONITOR">MONITOR </option>
+        <option value="SWITCH">SWITCH</option>
+      </select>
+    </div>
+
+
 
     <div class="mb-3">
       <label class="form-label">Descrição</label>
       <textarea name="descricao" class="form-control" rows="3"></textarea>
     </div>
 
-    <div class="mb-3">
-      <label class="form-label">Categoria</label>
-      <select name="categoria" class="form-select">
-        <option value="Madeira">Madeira</option>
-        <option value="Ferragem">Ferragem</option>
-        <option value="Ferramenta">Ferramenta</option>
-      </select>
-    </div>
 
     <button type="submit" class="btn btn-primary w-100">✅ Cadastrar Produto</button>
   </form>

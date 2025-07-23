@@ -1,8 +1,18 @@
 package org.example.produto;
 
 public class Produto {
+    private long id;
     private String nome;
-    private double preco;
+    private String descricao;
+    private String categoria;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -12,11 +22,19 @@ public class Produto {
         this.nome = nome;
     }
 
-    public double getPreco() {
-        return preco;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }

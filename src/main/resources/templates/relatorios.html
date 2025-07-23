@@ -39,7 +39,6 @@
     <h4 class="text-white text-center mb-4">Radar MDF</h4>
     <a href="index.html">🏠 Início</a>
     <a href="cadastro.html">📦 Cadastrar Produto</a>
-    <a href="vendas.html">🧾 Vendas</a>
     <a href="relatorios.html">📊 Relatórios</a>
     <a href="#">⚙️ Configurações</a>
 </div>
@@ -64,7 +63,6 @@
 </div>
 
 <script>
-    // Buscar produtos do backend
     fetch("/api/produtos")
       .then(res => res.json())
       .then(produtos => {
