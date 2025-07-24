@@ -1,25 +1,79 @@
 package org.example.produto;
 
-public class Produto {
-    private long id;
-    private String nome;
-    private String descricao;
-    private String categoria;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-    public long getId() {
+@Entity
+public class Produto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nomeItem;
+    private String codigoItem;
+    private String tipo;
+    private String loja;
+    private String setor;
+    private String estadoConservacao;
+    private String descricao;
+    private Long patrimonio;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeItem() {
+        return nomeItem;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeItem(String nomeItem) {
+        this.nomeItem = nomeItem;
+    }
+
+    public String getCodigoItem() {
+        return codigoItem;
+    }
+
+    public void setCodigoItem(String codigoItem) {
+        this.codigoItem = codigoItem;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getLoja() {
+        return loja;
+    }
+
+    public void setLoja(String loja) {
+        this.loja = loja;
+    }
+
+    public String getSetor() {
+        return setor;
+    }
+
+    public void setSetor(String setor) {
+        this.setor = setor;
+    }
+
+    public String getEstadoConservacao() {
+        return estadoConservacao;
+    }
+
+    public void setEstadoConservacao(String estadoConservacao) {
+        this.estadoConservacao = estadoConservacao;
     }
 
     public String getDescricao() {
@@ -30,11 +84,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public long getPatrimonio() {
+        return patrimonio;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setPatrimonio(long patrimonio) {
+        this.patrimonio = patrimonio;
     }
 }

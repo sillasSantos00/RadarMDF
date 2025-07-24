@@ -53,31 +53,33 @@
       <input type="number" name="preco" class="form-control" step="0.01" required>
     </div>
 
+    <!-- Nome do item -->
     <div class="mb-3">
       <label class="form-label">Nome do item</label>
-      <select name="categoria" class="form-select">
+      <select id="nomeItem" class="form-select">
         <option value="CPU Dell i3">CPU Dell i3</option>
         <option value="CPU Dell i7">CPU Dell i7</option>
         <option value="CPU win 7">CPU win 7</option>
       </select>
     </div>
 
-
-      <div class="mb-3">
-        <label class="form-label">Codigo do item </label>
-        <input type="number" name="preco" class="form-control" step="0.01" required>
-      </div>
-
+    <!-- Código do item -->
     <div class="mb-3">
-      <label class="form-label">Tipo </label>
-      <select name="categoria" class="form-select">
+      <label class="form-label">Código do item</label>
+      <input type="text" id="codigoItem" class="form-control" readonly>
+    </div>
+
+    <!-- Tipo -->
+    <div class="mb-3">
+      <label class="form-label">Tipo</label>
+      <select name="tipo" class="form-select">
         <option value="COMPUTADOR">COMPUTADOR</option>
-        <option value="MONITOR">MONITOR </option>
+        <option value="MONITOR">MONITOR</option>
         <option value="SWITCH">SWITCH</option>
       </select>
-
-
     </div>
+    <!-- Repita com outros names diferentes: loja, setor, estadoConservacao etc. -->
+
     <div class="mb-3">
       <label class="form-label">loja </label>
       <select name="categoria" class="form-select">
@@ -118,28 +120,20 @@
 </div>
 
 <script>
-  document.getElementById("form-produto").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const form = e.target;
+  // Espera até que o DOM esteja carregado
+  window.addEventListener("DOMContentLoaded", function () {
+    const nomeItem = document.getElementById("nomeItem");
+    const codigoItem = document.getElementById("codigoItem");
 
-    const data = {
-      nome: form.nome.value,
-      preco: parseFloat(form.preco.value),
-      descricao: form.descricao.value,
-      categoria: form.categoria.value
+    const codigos = {
+      "CPU Dell i3": "45678",
+      "CPU Dell i7": "12321",
+      "CPU win 7": "78901"
     };
 
-    fetch("/api/produtos", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.text())
-    .then(msg => {
-      form.reset();
-      alert(msg);
-    })
-    .catch(() => alert("Erro ao cadastrar produto"));
+    nomeItem.addEventListener("change", function () {
+      codigoItem.value = codigos[nomeItem.value] || "";
+    });
   });
 </script>
 

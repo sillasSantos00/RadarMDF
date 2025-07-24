@@ -1,4 +1,4 @@
-package org.example.Controller;
+package org.example.controller;
 
 import org.example.repository.ProdutoRepository;
 import org.example.produto.Produto;
@@ -17,12 +17,12 @@ public class ProdutoController {
     private ProdutoRepository repository;
 
     @PostMapping
-    public ResponseEntity<String> salvarProduto(@RequestBody Produto produto) {
+    public ResponseEntity<String> cadastrar(@RequestBody Produto produto) {
         repository.save(produto);
-        return ResponseEntity.ok("Produto salvo com sucesso!");
+        return ResponseEntity.ok("Produto cadastrado com sucesso!");
     }
     @GetMapping
-    public List<Produto> listar() {
+    public List<Produto> listarTodos() {
         return repository.findAll();
     }
 }
