@@ -17,7 +17,7 @@ public class ProdutoController {
     private ProdutoRepository repository;
 
     @PostMapping
-    public ResponseEntity<String> cadastrar(@RequestBody Produto produto) {
+    public ResponseEntity<String> cadastrar( @RequestBody Produto produto) {
         repository.save(produto);
         return ResponseEntity.ok("Produto cadastrado com sucesso!");
     }
