@@ -5,10 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+//Essa classe representa o que você está salvando no banco: o produto.
 
-@Entity
+@Entity //diz pro Spring: “essa classe será uma tabela no banco!”
 public class Produto {
-    @Id
+    @Id //chave primária automática
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

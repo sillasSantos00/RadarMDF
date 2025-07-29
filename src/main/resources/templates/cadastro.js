@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nomeItem = document.getElementById("nomeItem");
   const codigoItem = document.getElementById("codigoItem");
 
+  // 🌟 Códigos por nome de item
   const codigos = {
     "CPU Dell i3": "555714",
     "CPU Dell i7": "555713",
@@ -43,35 +44,42 @@ document.addEventListener("DOMContentLoaded", () => {
     "mesa de som": "#N/A"
   };
 
+  // 🔁 Atualiza o campo código conforme a seleção
   nomeItem.addEventListener("change", () => {
     codigoItem.value = codigos[nomeItem.value] || "";
   });
 
-  document.getElementById("form-produto").addEventListener("submit", function (e) {
+  // 📨 Envia os dados para a API da planilha
+  document.getElementById("form-produto").addEventListener("submit", async function (e) {
     e.preventDefault();
     const form = e.target;
 
     const data = {
-      patrimonio: parseFloat(form.preco.value),
-      nomeItem: form.nomeItem.value,
-      codigoItem: form.codigoItem.value,
-      tipo: form.tipo.value,
-      loja: form.loja?.value || "",
+      codigo: form.codigoItem.value,
       setor: form.setor?.value || "",
-      estadoConservacao: form.estadoConservacao?.value || "",
-      descricao: form.descricao.value
+      estado: form.estadoConservacao?.value || "",
+      observacoes: form.descricao.value
     };
 
-    fetch("/api/produtos", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dados)
-    })
-    .then(res => res.text())
-    .then(msg => {
+    // ❗ Valida se o código é válido
+    if (!data.codigo || data.codigo === "#N/A") {
+      alert("Selecione um item com código válido.");
+      return;
+    }
+
+    try {
+      const resposta = await fetch("https://script.google.com/macros/s/AKfycbz6On0WEIKtb02fNuqRQoOXnzgGY7s3kfpyEYtwCtbfSQ9Ef7vyyGKxtF1qXQ6IK0nO/exec", {
+        method: "POST",
+        body: new URLSearchParams(data)
+      });
+
+      const texto = await resposta.text();
+      alert(texto);
       form.reset();
-      alert(msg);
-    })
-    .catch(() => alert("Erro ao cadastrar produto"));
+      codigoItem.value = ""; // limpa o campo código
+    } catch (err) {
+      alert("Erro ao atualizar item.");
+      console.error(err);
+    }
   });
 });

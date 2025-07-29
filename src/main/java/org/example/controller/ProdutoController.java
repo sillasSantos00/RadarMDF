@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
+//Aqui ficam as rotas da API, que seu formulário chama com fetch().
+
 
 @RestController
 @RequestMapping("/api/produtos")
@@ -26,3 +28,12 @@ public class ProdutoController {
         return repository.findAll();
     }
 }
+
+
+//@RestController define que a classe responde via API REST
+//
+//@RequestMapping("/api/produtos") define o caminho base
+//
+//@PostMapping responde ao método POST (pra cadastrar)
+//
+//@GetMapping responde ao método GET (pra listar)
