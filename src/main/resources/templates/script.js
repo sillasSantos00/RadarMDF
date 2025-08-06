@@ -1,38 +1,48 @@
-<script>
-  // Preencher código automaticamente
-  document.getElementById("nomeItem").addEventListener("change", function () {
-    const codigos = {
-      "CPU Dell i3": "45678",
-      "CPU Dell i7": "12321",
-      "CPU win 7": "78901"
-    };
-    document.getElementById("codigoItem").value = codigos[this.value] || "";
-  });
+var sheetName = 'leads_formulario';
+var scriptProp = PropertiesService.getScriptProperties();
 
-  // Enviar dados
-  document.getElementById("form-produto").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const form = e.target;
+const intialSetup = (e = {}) =>
+{
+	var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
+	scriptProp.setProperty('key', activeSpreadsheet.getId())
+}
 
-    const data = {
-      patrimonio: parseFloat(form.preco.value),
-      nomeItem: form.nomeItem.value,
-      codigoItem: form.codigoItem.value,
-      tipo: form.tipo.value,
-      // Adicione os outros campos como loja, setor, estadoConservacao, descricao...
-      descricao: form.descricao.value
-    };
+const doPost = (e = {}) =>
+{
+	const { parameter, postData: { contents, type } = {} } = e;
+	const { source } = parameter;
+	var lock = LockService.getScriptLock()
+	lock.tryLock(10000)
 
-    fetch("/api/produtos", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.text())
-    .then(msg => {
-      form.reset();
-      alert(msg);
-    })
-    .catch(() => alert("Erro ao cadastrar produto"));
-  });
-</script>
+	try
+	{
+		// esse id é o id da planilha (abra a planilha em uma aba ao lado e veja o id na url)
+		var sheet = SpreadsheetApp.openById("1_GIDaX6VFDtRXnj4KdH457d9UtvtP8rhU_ZJtUeROJU").getActiveSheet();
+		var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+		var nextRow = sheet.getLastRow() + 1
+
+		const columns = JSON.parse(contents);
+
+		var newRow = sheet.appendRow([
+			new Date(), // timestamp
+			columns.email,
+			columns.primeiro_nome,
+			columns.ultimo_nome,
+			columns.telefone,
+		])
+	
+		return ContentService
+			.createTextOutput(JSON.stringify({ 'result': 'success'}))
+			.setMimeType(ContentService.MimeType.JSON)
+	}
+	catch (e)
+	{
+		return ContentService
+			.createTextOutput(JSON.stringify({ 'result': 'error', 'error': e.message }))
+			.setMimeType(ContentService.MimeType.JSON)
+	}
+	finally
+	{
+		lock.releaseLock()
+	}
+}
