@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         body: new URLSearchParams(data)
       });
-8882
+
       const texto = await resposta.text();
       alert(texto);
       form.reset();
